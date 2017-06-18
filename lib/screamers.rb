@@ -1,5 +1,5 @@
-require "screamers/version"
+# frozen-string-literal: true
 
-module Screamers
-  # Your code goes here...
-end
+require 'active_record'
+require 'screamers/schema_collector'
+require 'screamers/version'

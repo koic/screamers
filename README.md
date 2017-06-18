@@ -1,12 +1,10 @@
-# Screamers
+# Screamers [![Build Status](https://travis-ci.org/koic/screamers.svg)](https://travis-ci.org/koic/screamers)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/screamers`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Generate a migration file that converts column types all at once.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your Rails application's Gemfile:
 
 ```ruby
 gem 'screamers'
@@ -14,15 +12,33 @@ gem 'screamers'
 
 And then execute:
 
-    $ bundle
+```console
+% bundle
+```
 
-Or install it yourself as:
+The following subcommand will be added to the `rails g` command.
 
-    $ gem install screamers
+```console
+Screamers:
+  screamers:migration
+```
+
+## Synopsis
+
+```console
+bin/rails g screamers:migration <old-column-type> <new-column-type>
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Here is an example of converting `date` type to `datetime` type.
+
+```console
+% bin/rails g screamers:migration date datetime
+      create  db/migrate/20170628144908_change_date_to_datetime_using_screamers.rb
+```
+
+Generate a migration file that converts column types all at once.
 
 ## Development
 

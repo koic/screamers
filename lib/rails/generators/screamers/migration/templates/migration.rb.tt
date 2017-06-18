@@ -1,0 +1,20 @@
+class Change<%= @old_column_type.capitalize %>To<%= @new_column_type.capitalize %>UsingScreamers < ActiveRecord::Migration[<%= ActiveRecord::Migration.current_version %>]
+<% target_tables = @target_columns.keys.sort -%>
+  def up
+<% target_tables.each do |table| -%>
+<% @target_columns[table].sort.each do |column| -%>
+    change_column :<%= table %>, :<%= column %>, :<%= @new_column_type %>
+<% end -%>
+<%= "\n" unless target_tables.last == table -%>
+<% end -%>
+  end
+
+  def down
+<% target_tables.each do |table| -%>
+<% @target_columns[table].sort.each do |column| -%>
+    change_column :<%= table %>, :<%= column %>, :<%= @old_column_type %>
+<% end -%>
+<%= "\n" unless target_tables.last == table -%>
+<% end -%>
+  end
+end
