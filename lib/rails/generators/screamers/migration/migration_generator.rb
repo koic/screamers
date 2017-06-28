@@ -6,8 +6,8 @@ module Screamers
   module Generators
     class MigrationGenerator < ::Rails::Generators::Base
       desc 'Creates a migration file made [Screamers Task]'
-      argument :old_column_type, type: :string, banner: 'OLD_COLUMN_NAME'
-      argument :new_column_type, type: :string, banner: 'NEW_COLUMN_NAME'
+      argument :old_column_type, type: :string, banner: 'OLD_COLUMN_TYPE'
+      argument :new_column_type, type: :string, banner: 'NEW_COLUMN_TYPE'
 
       def self.source_root
         File.expand_path('../templates', __FILE__)

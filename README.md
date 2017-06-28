@@ -26,7 +26,7 @@ Screamers:
 ## Synopsis
 
 ```console
-bin/rails g screamers:migration OLD_COLUMN_NAME NEW_COLUMN_NAME
+bin/rails g screamers:migration OLD_COLUMN_TYPE NEW_COLUMN_TYPE
 ```
 
 ## Usage
