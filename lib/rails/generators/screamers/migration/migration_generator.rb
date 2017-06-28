@@ -14,9 +14,9 @@ module Screamers
       end
 
       def create_migration_file
-        collector = Screamers::SchemaCollector.new(old_column_type, new_column_type)
+        collector = Screamers::ColumnCollector.new(old_column_type, new_column_type)
 
-        @target_columns = collector.collect_schema
+        @target_columns = collector.collect_columns
 
         if @target_columns.empty?
           puts '[Screamers] There is no change in the schema.'; exit!

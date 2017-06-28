@@ -1,13 +1,13 @@
 # frozen-string-literal: true
 
 module Screamers
-  class SchemaCollector
+  class ColumnCollector
     def initialize(old_column_type, new_column_type)
       @old_column_type = old_column_type.to_sym
       @new_column_type = new_column_type.to_sym
     end
 
-    def collect_schema
+    def collect_columns
       tables = ActiveRecord::Base.connection.tables
       tables.delete('ar_internal_metadata')
 
