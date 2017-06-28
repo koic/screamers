@@ -7,8 +7,6 @@ module Screamers
       @new_column_type = new_column_type.to_sym
     end
 
-    migrations_paths = ActiveRecord::Migrator.migrations_paths.first
-
     def collect_schema
       tables = ActiveRecord::Base.connection.tables
       tables.delete('ar_internal_metadata')

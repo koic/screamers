@@ -22,9 +22,10 @@ module Screamers
           puts '[Screamers] There is no change in the schema.'; exit!
         end
 
+        migrations_path = ActiveRecord::Migrator.migrations_paths.first
         file_name = "#{Time.current.strftime('%Y%m%d%H%M%S')}_change_#{old_column_type}_to_#{new_column_type}_using_screamers"
 
-        template 'migration.rb.tt', File.join('db/migrate', "#{file_name}.rb")
+        template 'migration.rb.tt', File.join(migrations_path, "#{file_name}.rb")
       end
     end
   end
