@@ -1,4 +1,4 @@
-# Screamers [![Build Status](https://travis-ci.org/koic/screamers.svg)](https://travis-ci.org/koic/screamers)
+# Screamers [![Build Status](https://travis-ci.org/koic/screamers.svg)](https://travis-ci.org/koic/screamers) [![Gem Version](https://badge.fury.io/rb/screamers.svg)](http://badge.fury.io/rb/screamers)
 
 Generate a migration file that converts column types all at once.
 
