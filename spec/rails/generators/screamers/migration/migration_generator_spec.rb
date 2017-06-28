@@ -7,21 +7,21 @@ RSpec.describe Screamers::Generators::MigrationGenerator, type: :generator do
   arguments ['integer', 'bigint']
 
   let(:generated_code) { <<-EOS.strip_heredoc
-class ChangeIntegerToBigintUsingScreamers < ActiveRecord::Migration[5.1]
-  def up
-    change_column :comments, :id, :bigint
-    change_column :comments, :post_id, :bigint
+    class ChangeIntegerToBigintUsingScreamers < ActiveRecord::Migration[5.1]
+      def up
+        change_column :comments, :id, :bigint
+        change_column :comments, :post_id, :bigint
 
-    change_column :posts, :id, :bigint
-  end
+        change_column :posts, :id, :bigint
+      end
 
-  def down
-    change_column :comments, :id, :integer
-    change_column :comments, :post_id, :integer
+      def down
+        change_column :comments, :id, :integer
+        change_column :comments, :post_id, :integer
 
-    change_column :posts, :id, :integer
-  end
-end
+        change_column :posts, :id, :integer
+      end
+    end
     EOS
   }
 
