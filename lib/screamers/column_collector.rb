@@ -9,7 +9,6 @@ module Screamers
 
     def collect_columns
       tables = ActiveRecord::Base.connection.tables
-      tables.delete(ActiveRecord::InternalMetadata.table_name)
 
       @target_tables = tables.each_with_object({}) {|table, target|
         begin
