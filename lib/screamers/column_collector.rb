@@ -11,14 +11,9 @@ module Screamers
       tables = ActiveRecord::Base.connection.tables
 
       @target_tables = tables.each_with_object({}) {|table, target|
-        begin
-          columns = Module.const_get(table.classify).columns
-        rescue
-          puts "An ActiveRecord model mapped to `#{table}` foo could not be found. Please check if you need handmade by yourself."
-          next
-        end
+        active_record_model = active_record_model_const_get(table.classify)
 
-        target_columns = columns.select {|column|
+        target_columns = active_record_model.columns.select {|column|
           column.type == @old_column_type
         }
 
@@ -26,6 +21,18 @@ module Screamers
           target[table] = columns
         end
       }
+    end
+
+    private
+
+    def active_record_model_const_get(class_name)
+      Module.const_get(class_name)
+    rescue
+      eval <<-EOS.strip_heredoc
+        class ::#{class_name} < ActiveRecord::Base
+        end
+      EOS
+      Module.const_get(class_name)
     end
   end
 end
