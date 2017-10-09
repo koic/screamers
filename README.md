@@ -13,7 +13,7 @@ gem 'screamers'
 And then execute:
 
 ```console
-% bundle
+% bundle install
 ```
 
 The following subcommand will be added to the `rails g` command.
