@@ -40,6 +40,11 @@ Here is an example of converting `date` type to `datetime` type.
 
 Generate a migration file that converts column types all at once.
 
+## Supported versions
+
+- Ruby 2.2.2 or higher
+- Rails 5.1, 5.2
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
