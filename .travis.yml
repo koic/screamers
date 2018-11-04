@@ -6,7 +6,28 @@ rvm:
   - 2.4.5
   - 2.5.3
   - ruby-head
+
+gemfile:
+  - gemfiles/Gemfile-rails5.1.x
+  - gemfiles/Gemfile-rails5.2.x
+  - gemfiles/Gemfile-rails_edge
+
 matrix:
   allow_failures:
+    - rvm: 2.4.5
+      gemfile: gemfiles/Gemfile-rails_edge
+    - rvm: 2.5.3
+      gemfile: gemfiles/Gemfile-rails_edge
     - rvm: ruby-head
+      gemfile: gemfiles/Gemfile-rails5.1.x
+    - rvm: ruby-head
+      gemfile: gemfiles/Gemfile-rails5.2.x
+    - rvm: ruby-head
+      gemfile: gemfiles/Gemfile-rails_edge
+  exclude:
+    - rvm: 2.2.10
+      gemfile: gemfiles/Gemfile-rails_edge
+    - rvm: 2.3.8
+      gemfile: gemfiles/Gemfile-rails_edge
+
 before_install: gem install bundler -v 1.15.1
