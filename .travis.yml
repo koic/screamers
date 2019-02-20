@@ -14,8 +14,6 @@ gemfile:
 
 matrix:
   allow_failures:
-    - rvm: 2.4.5
-      gemfile: gemfiles/Gemfile-rails_edge
     - rvm: 2.5.3
       gemfile: gemfiles/Gemfile-rails_edge
     - rvm: ruby-head
@@ -28,6 +26,8 @@ matrix:
     - rvm: 2.2.10
       gemfile: gemfiles/Gemfile-rails_edge
     - rvm: 2.3.8
+      gemfile: gemfiles/Gemfile-rails_edge
+    - rvm: 2.4.5
       gemfile: gemfiles/Gemfile-rails_edge
 
 before_install: gem install bundler -v 1.15.1
